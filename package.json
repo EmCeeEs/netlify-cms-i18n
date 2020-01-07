@@ -1,0 +1,17 @@
+{
+  "name": "netlify-cms-i18n",
+  "version": "1.0.0",
+  "description": "Adds internationalisation to netlify-cms.",
+  "author": "Marcus Theisen",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bootstrap": "yarn lerna bootstrap"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

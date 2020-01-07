@@ -1,0 +1,8 @@
+{
+  "name": "@netlify-cms-i18n/widget",
+  "version": "1.0.0",
+  "description": "A tool to create internationalised widgets.",
+  "author": "Marcus Theisen",
+  "license": "MIT",
+  "private": false
+}

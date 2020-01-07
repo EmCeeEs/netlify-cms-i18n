@@ -1,0 +1,8 @@
+{
+  "name": "@netlify-cms-i18n/lib",
+  "version": "1.0.0",
+  "description": "Core internationalisation utilities.",
+  "author": "Marcus Theisen",
+  "license": "MIT",
+  "private": false
+}
