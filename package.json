@@ -6,10 +6,20 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "bootstrap": "yarn lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+    "lint": "eslint 'packages/**/src/**/*.ts?(x)'",
+    "lint:fix": "yarn lint --fix"
   },
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
+    "@typescript-eslint/parser": "^2.15.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-typescript": "^0.14.0",
+    "lerna": "^3.20.2",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.4"
   },
   "workspaces": [
     "packages/*"
