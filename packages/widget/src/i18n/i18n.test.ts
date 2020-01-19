@@ -6,7 +6,7 @@ import {
   TranslationCollection,
   translate,
   getTranslation,
-} from './lib'
+} from './'
 
 const cat: TranslationCollection<string> = [
   {

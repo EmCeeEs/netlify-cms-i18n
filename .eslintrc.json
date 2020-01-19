@@ -4,15 +4,20 @@
     "ecmaVersion": 2018,
     "sourceType": "module",
     "jsx": true,
-    "useJSXTextNode": true
+    "useJSXTextNode": true,
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "extends": [
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
   "plugins": [
     "typescript",
+    "react",
     "prettier"
   ],
   "rules": {

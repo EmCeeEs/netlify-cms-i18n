@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
+      "esnext"
     ],
-    "strict": true,
     "module": "commonjs",
     "esModuleInterop": true,
+    "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
+    "noImplicitAny": false,
     "isolatedModules": true,
-    "noEmit": true,
+    "jsx": "react",
+    "outDir": "dist"
   },
   "include": [
     "src"
   ],
+  "exclude": ["./**/*.test.*"]
 }

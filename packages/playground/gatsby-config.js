@@ -5,7 +5,13 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        manualInit: true,
+        modulePath: `${__dirname}/src/cms/index.ts`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
