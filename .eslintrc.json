@@ -27,7 +27,6 @@
     "curly": [
       "error",
       "multi-line"
-    ],
-    "camelcase": 2
+    ]
   }
 }
