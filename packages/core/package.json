@@ -11,7 +11,9 @@
     "build": "tsc -p ./",
     "start": "yarn build --watch",
     "test": "tape -r ts-node/register 'src/**/*.test.ts?(x)' | tap-spec",
-    "test:watch": "onchange -i 'src/**/*.ts?(x)' -- yarn test"
+    "test:watch": "onchange -i 'src/**/*.ts?(x)' -- yarn test",
+    "lint": "eslint './src/**/*.ts?(x)'",
+    "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
@@ -28,6 +30,14 @@
     "tap-spec": "^5.0.0",
     "tape": "^4.12.1",
     "ts-node": "^8.5.4",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.15.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "prettier": "^1.19.1",
     "typescript": "^3.7.4"
   }
 }

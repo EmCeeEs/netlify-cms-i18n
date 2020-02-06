@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -22,24 +23,26 @@ module.exports = {
           options: {
             sourceType: 'module',
             presets: [
-              ['@babel/preset-env', { targets: { esmodules: true }}], 
-              '@babel/preset-react'
+              ['@babel/preset-env', { targets: { esmodules: true } }],
+              '@babel/preset-react',
             ],
-          }
-        }
-      }
+          },
+        },
+      },
     ],
   },
   plugins: [
     new HtmlPlugin(),
-    new CopyPlugin([{
-      from: path.join(__dirname, './static/**/*'),
-      to: path.join(distDir, '/[name].[ext]'),
-    }])
+    new CopyPlugin([
+      {
+        from: path.join(__dirname, './static/**/*'),
+        to: path.join(distDir, '/[name].[ext]'),
+      },
+    ]),
   ],
   devServer: {
     contentBase: distDir,
     compress: true,
     port: 9000,
-  }
+  },
 }

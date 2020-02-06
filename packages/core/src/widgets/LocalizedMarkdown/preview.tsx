@@ -26,7 +26,6 @@ export const createLocalizedMarkdownPreview = (locales: Locale[]) => {
 
     updateProps = (locale: Locale) => ({
       ...this.props,
-      key: locale,
       onChange: this.handleChange(locale),
       value: fromJS(this.getValue(locale)),
     })
@@ -34,7 +33,7 @@ export const createLocalizedMarkdownPreview = (locales: Locale[]) => {
     render = () => (
       <div>
         {locales.map(locale => (
-          <MarkdownPreview {...this.updateProps(locale)} />
+          <MarkdownPreview key={locale} {...this.updateProps(locale)} />
         ))}
       </div>
     )

@@ -2,7 +2,7 @@
   "name": "@netlify-cms-i18n/playground",
   "version": "1.0.0",
   "description": "Playground",
-  "main": "index.js",
+  "main": "src/index.js",
   "private": true,
   "scripts": {
     "prebuild": "rm -rf ./dist",

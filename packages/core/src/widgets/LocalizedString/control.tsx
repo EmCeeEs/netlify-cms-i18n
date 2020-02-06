@@ -2,15 +2,12 @@ import * as React from 'react'
 import * as R from 'ramda'
 import { getTranslation, uppendTranslation } from '../../i18n'
 import { Locale } from '../../i18n/locales'
-import { WidgetProps} from '../shared/WidgetProps'
-
+import { WidgetProps } from '../shared/WidgetProps'
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>
 
 export const createLocalizedStringControl = (locales: Locale[]) => {
-  return class LocalizedStringControl extends React.Component<
-WidgetProps  > {
-
+  return class LocalizedStringControl extends React.Component<WidgetProps> {
     getWidgetState = () => {
       const { value: state } = this.props
       return !state ? [] : R.is(Array, state) ? state : state.toJS()

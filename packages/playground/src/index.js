@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react'
 import ReactDom from 'react-dom'
 import cms from 'netlify-cms-app'
-import repoData from './static/data'
-import { LocalizedStringWidget, LocalizedMarkdownWidget } from '@netlify-cms-i18n/core'
+import repoData from '../static/data'
+import {
+  LocalizedStringWidget,
+  LocalizedMarkdownWidget,
+} from '@netlify-cms-i18n/core'
+
+const LOCALES = ['en', 'de']
 
 const createRoot = () => {
   const $root = document.createElement('div')
@@ -14,8 +19,8 @@ const CMS = () => {
   useEffect(() => {
     window.repoFiles = repoData
 
-    cms.registerWidget(LocalizedStringWidget(['en', 'de']))
-    cms.registerWidget(LocalizedMarkdownWidget(['en', 'de']))
+    cms.registerWidget(LocalizedStringWidget(LOCALES))
+    cms.registerWidget(LocalizedMarkdownWidget(LOCALES))
     cms.init()
   }, [])
 

@@ -4,7 +4,7 @@ import * as R from 'ramda'
 import { LocalePicker } from '../shared/LocalePicker'
 import { Locale } from '../../i18n/locales'
 import { getTranslation, uppendTranslation } from '../../i18n'
-import { extractAsJS, fromJS } from './helpers'
+import { extractAsJS, fromJS } from '../shared/helpers'
 
 interface WidgetProps {
   onChange: (newValue: any) => void

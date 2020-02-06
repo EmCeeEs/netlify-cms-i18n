@@ -1,15 +1,12 @@
 import React from 'react'
-import { isImmutable, Map, List, fromJS } from 'immutable'
+import { Map, List } from 'immutable'
 import * as R from 'ramda'
+import { extractAsJS, fromJS } from '../shared/helpers'
 
-import {
-  getTranslation,
-  uppendTranslation,
-  TranslationCollection,
-} from '../../i18n'
+import { getTranslation, uppendTranslation } from '../../i18n'
 import { Locale } from '../../i18n/locales'
 import { LocalePicker } from '../shared/LocalePicker'
-import  MarkdownWidget  from 'netlify-cms-widget-markdown'
+import MarkdownWidget from 'netlify-cms-widget-markdown'
 
 const MarkdownControl = MarkdownWidget.controlComponent
 
@@ -72,11 +69,3 @@ export const createLocalizedMarkdownControl = (locales: Locale[]) => {
   }
   return LocalizedMarkdownControl
 }
-
-const toJS = (value: any) => value.toJS()
-
-const extractAsJS: (value: any) => TranslationCollection<any> = R.cond([
-  [R.isNil, R.always([])],
-  [isImmutable, toJS],
-  [R.T, R.identity],
-])

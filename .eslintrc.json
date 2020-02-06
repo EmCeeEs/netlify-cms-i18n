@@ -9,6 +9,10 @@
       "jsx": true
     }
   },
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -17,11 +21,19 @@
     "plugin:prettier/recommended"
   ],
   "plugins": [
-    "typescript",
+    "@typescript-eslint",
     "react",
     "react-hooks",
     "prettier"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "linkComponents": [
+      // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+    ]
+  },
   "rules": {
     "prettier/prettier": [
       "error",
