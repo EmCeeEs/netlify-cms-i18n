@@ -10,6 +10,7 @@
     }
   },
   "extends": [
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "prettier/@typescript-eslint",
@@ -18,6 +19,7 @@
   "plugins": [
     "typescript",
     "react",
+    "react-hooks",
     "prettier"
   ],
   "rules": {
@@ -32,6 +34,11 @@
     "curly": [
       "error",
       "multi-line"
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/explicit-function-return-type": 0
   }
 }

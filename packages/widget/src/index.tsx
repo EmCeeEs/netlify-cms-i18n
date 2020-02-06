@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import * as R from 'ramda'
 
 import { LocalePicker } from './LocalePicker'
@@ -13,25 +13,25 @@ interface WidgetProps {
 
 export const createLocalizedWidget = (Widget: any, locales: Locale[]) => {
   const LocalizedWidget: React.FC<WidgetProps> = props => {
-    // eslint-disable-next-line react/prop-types
     const { value, onChange } = props
 
-    console.log('props:', props)
     const [locale, setLocale] = React.useState<Locale>(
       R.head(locales) as Locale,
     )
 
     const collection = extractAsJS(value)
 
-    const getValue = (locale: Locale) => {
-      console.log(fromJS(getTranslation<string>(locale)(collection)))
+    const getValue = () => {
       return fromJS(getTranslation<string>(locale)(collection))
     }
 
-    const handleChange = (locale: Locale) => (newValue: any) => {
-      console.log(fromJS(uppendTranslation(locale, newValue)(collection)))
-      onChange(fromJS(uppendTranslation(locale, newValue)(collection)))
-    }
+    const handleChange = useCallback(
+      (newValue: any) => {
+        const newCollection = uppendTranslation(locale, newValue)(collection)
+        onChange(fromJS(newCollection))
+      },
+      [collection, locale, onChange],
+    )
 
     return (
       <div>
@@ -43,8 +43,8 @@ export const createLocalizedWidget = (Widget: any, locales: Locale[]) => {
         <Widget
           {...props}
           key={locale}
-          onChange={handleChange(locale)}
-          value={getValue(locale)}
+          onChange={handleChange}
+          value={getValue()}
         />
       </div>
     )

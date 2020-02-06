@@ -1,7 +1,7 @@
 {
   "name": "netlify-cms-i18n",
   "version": "1.0.0",
-  "description": "Adds internationalisation to netlify-cms.",
+  "description": "Internationalisation for netlify CMS.",
   "author": "Marcus Theisen",
   "license": "MIT",
   "private": true,
@@ -17,6 +17,7 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-typescript": "^0.14.0",
     "lerna": "^3.20.2",
     "prettier": "^1.19.1",

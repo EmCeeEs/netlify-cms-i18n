@@ -1,0 +1,17 @@
+backend:
+  name: test-repo
+
+media_folder: assets/uploads
+
+collections:
+  - label: Pages
+    label_singular: "Page"
+    name: pages
+    files:
+      - label: Home
+        name: home
+        file: _data/_home.json
+        fields:
+          - label: Title
+            name: title
+            widget: i18n-string

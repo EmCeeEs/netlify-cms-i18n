@@ -1,0 +1,28 @@
+{
+  "name": "@netlify-cms-i18n/i18n",
+  "version": "1.0.0",
+  "description": "Core internationalisation utilities.",
+  "main": "dist/index.js",
+  "author": "Marcus Theisen",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsc -p ./",
+    "start": "yarn build --watch",
+    "test": "tape -r ts-node/register 'src/**/*.test.ts?(x)' | tap-spec",
+    "test:watch": "onchange -i 'src/**/*.ts?(x)' -- yarn test"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.26.39",
+    "@types/tape": "^4.2.33",
+    "@types/vfile-message": "^2.0.0",
+    "onchange": "^6.1.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.12.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  }
+}
