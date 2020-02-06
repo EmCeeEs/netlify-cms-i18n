@@ -1,5 +1,6 @@
 const homeContent = {
-  title: { en: 'Hello World!', de: 'Hallo Welt!' },
+  title: [{ locale: 'en', value: 'Hello World!'}, {locale: 'de', value: 'Hallo Welt!' }],
+  body: [{locale: 'en', value: 'Hi I like you.'}],
 }
 
 export default {

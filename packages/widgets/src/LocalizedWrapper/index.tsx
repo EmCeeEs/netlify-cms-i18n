@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react'
 import * as R from 'ramda'
 
-import { LocalePicker } from './LocalePicker'
-import { Locale } from './i18n/locales'
-import { getTranslation, uppendTranslation } from './i18n'
+import { LocalePicker } from '../shared/LocalePicker'
+import { Locale } from '@netlify-cms-i18n/i18n'
+import { getTranslation, uppendTranslation } from '@netlify-cms-i18n/i18n'
 import { extractAsJS, fromJS } from './helpers'
 
 interface WidgetProps {

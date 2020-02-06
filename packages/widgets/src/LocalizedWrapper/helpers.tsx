@@ -1,6 +1,6 @@
 import * as R from 'ramda'
 import { isImmutable, fromJS } from 'immutable'
-import { TranslationCollection } from './i18n'
+import { TranslationCollection } from '@netlify-cms-i18n/i18n'
 
 const toJS = (value: any) => value.toJS()
 

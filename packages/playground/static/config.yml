@@ -15,3 +15,7 @@ collections:
           - label: Title
             name: title
             widget: i18n-string
+
+          - label: Body
+            name: body
+            widget: i18n-string

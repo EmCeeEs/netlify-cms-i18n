@@ -5,11 +5,11 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "start": "webpack-dev-server --config ./webpack.config.js",
+    "build": "webpack --config ./webpack.config.js"
   },
   "dependencies": {
-    "@netlify-cms-i18n/string": "^1.0.0",
+    "@netlify-cms-i18n/widgets": "^1.0.0",
     "netlify-cms-app": "^2.9.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

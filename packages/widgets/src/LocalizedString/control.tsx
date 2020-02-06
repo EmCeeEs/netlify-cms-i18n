@@ -2,22 +2,15 @@ import * as React from 'react'
 import * as R from 'ramda'
 import { getTranslation, uppendTranslation } from '@netlify-cms-i18n/i18n'
 import { Locale } from '@netlify-cms-i18n/i18n'
+import { WidgetProps} from '../shared/WidgetProps'
 
-export interface LocalizedStringWidgetProps {
-  value?: any
-  forID?: string
-  classNameWrapper: string
-  onChange: (value: any) => void
-  setActiveStyle?: React.FocusEventHandler
-  setInactiveStyle?: React.FocusEventHandler
-}
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>
 
 export const createLocalizedStringControl = (locales: Locale[]) => {
   return class LocalizedStringControl extends React.Component<
-    LocalizedStringWidgetProps
-  > {
+WidgetProps  > {
+
     getWidgetState = () => {
       const { value: state } = this.props
       return !state ? [] : R.is(Array, state) ? state : state.toJS()
