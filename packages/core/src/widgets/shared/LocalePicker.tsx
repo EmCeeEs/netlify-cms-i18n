@@ -1,5 +1,5 @@
 import React from 'react'
-import { Locale } from '@netlify-cms-i18n/i18n'
+import { Locale } from '../../i18n/locales'
 import * as R from 'ramda'
 
 interface LocalePickerProps {

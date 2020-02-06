@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import ReactDom from 'react-dom'
 import cms from 'netlify-cms-app'
 import repoData from './static/data'
-import { LocalizedStringWidget, LocalizedMarkdownWidget } from '@netlify-cms-i18n/widgets'
+import { LocalizedStringWidget, LocalizedMarkdownWidget } from '@netlify-cms-i18n/core'
 
 const createRoot = () => {
   const $root = document.createElement('div')

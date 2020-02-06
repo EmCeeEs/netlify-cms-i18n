@@ -1,23 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
-      "ESNext",
+      "esnext",
     ],
-    "strict": true,
     "module": "commonjs",
     "esModuleInterop": true,
+    "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "isolatedModules": true,
+    "noImplicitAny": false,
+    "jsx": "react",
     "outDir": "dist"
   },
   "include": [
     "src"
   ],
-  "exclude": [
-    "src/**/*.test.ts",
-  ]
+  "exclude": ["src/**/*.test.*"]
 }

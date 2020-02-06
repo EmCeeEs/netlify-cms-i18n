@@ -1,12 +1,12 @@
-import CMS from 'netlify-cms-app'
 import React, { Component } from 'react'
 import { fromJS, isImmutable } from 'immutable'
 
-import { getTranslation, uppendTranslation } from '@netlify-cms-i18n/i18n'
-import { Locale } from '@netlify-cms-i18n/i18n'
+import { getTranslation, uppendTranslation } from '../../i18n'
+import { Locale } from '../../i18n/locales'
 import { WidgetProps } from '../shared/WidgetProps'
+import MarkdownWidget from 'netlify-cms-widget-markdown'
 
-const MarkdownPreview = CMS.getWidget('markdown').preview
+const MarkdownPreview = MarkdownWidget.previewComponent
 
 export const createLocalizedMarkdownPreview = (locales: Locale[]) => {
   return class LocalizedMarkdownPreview extends Component<WidgetProps> {

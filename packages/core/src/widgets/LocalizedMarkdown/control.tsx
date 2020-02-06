@@ -6,8 +6,8 @@ import {
   getTranslation,
   uppendTranslation,
   TranslationCollection,
-} from '@netlify-cms-i18n/i18n'
-import { Locale } from '@netlify-cms-i18n/i18n'
+} from '../../i18n'
+import { Locale } from '../../i18n/locales'
 import { LocalePicker } from '../shared/LocalePicker'
 import  MarkdownWidget  from 'netlify-cms-widget-markdown'
 

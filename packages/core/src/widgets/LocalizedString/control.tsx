@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as R from 'ramda'
-import { getTranslation, uppendTranslation } from '@netlify-cms-i18n/i18n'
-import { Locale } from '@netlify-cms-i18n/i18n'
+import { getTranslation, uppendTranslation } from '../../i18n'
+import { Locale } from '../../i18n/locales'
 import { WidgetProps} from '../shared/WidgetProps'
 
 

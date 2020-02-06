@@ -1,6 +1,6 @@
 import { createLocalizedStringControl } from './control'
-import { TranslationCollection } from '@netlify-cms-i18n/i18n'
-import { Locale } from '@netlify-cms-i18n/i18n'
+import { TranslationCollection } from '../../i18n'
+import { Locale } from '../../i18n/locales'
 
 export type LocalizedString = TranslationCollection<string>
 
