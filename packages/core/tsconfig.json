@@ -13,7 +13,9 @@
     "moduleResolution": "node",
     "noImplicitAny": false,
     "jsx": "react",
-    "outDir": "dist"
+    "outDir": "dist",
+    "strict": true,
+    "sourceMap": true
   },
   "include": [
     "src"

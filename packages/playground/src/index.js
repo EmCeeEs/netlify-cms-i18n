@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactDom from 'react-dom'
 import cms from 'netlify-cms-app'
+
 import repoData from '../static/data'
 import {
   LocalizedStringWidget,

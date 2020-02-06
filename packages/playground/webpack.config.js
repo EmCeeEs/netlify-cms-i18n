@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -7,7 +6,7 @@ const distDir = path.join(__dirname, 'dist')
 
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, 'index.js'),
+  entry: path.join(__dirname, 'src/index.js'),
   output: {
     path: distDir,
     filename: 'bundle.js',

@@ -1,41 +1,27 @@
-import React, { Component } from 'react'
-import { fromJS, isImmutable } from 'immutable'
+import React from 'react'
 
-import { getTranslation, uppendTranslation } from '../../i18n'
+import { getTranslation } from '../../i18n'
 import { Locale } from '../../i18n/locales'
 import { WidgetProps } from '../shared/WidgetProps'
 import MarkdownWidget from 'netlify-cms-widget-markdown'
+import { extractAsJS, fromJS } from '../shared/helpers'
 
 const MarkdownPreview = MarkdownWidget.previewComponent
 
 export const createLocalizedMarkdownPreview = (locales: Locale[]) => {
-  return class LocalizedMarkdownPreview extends Component<WidgetProps> {
-    getWidgetState = () => {
-      const { value } = this.props
-      return !value ? [] : isImmutable(value) ? value.toJS() : value
-    }
+  const LocalizedMarkdownPreview: React.FC<WidgetProps> = props => {
+    const collection = extractAsJS(props.value)
 
-    getValue = (locale: Locale) =>
-      getTranslation<object>(locale)(this.getWidgetState())
+    const getValue = (locale: Locale) =>
+      fromJS(getTranslation<string>(locale)(collection))
 
-    handleChange = (locale: Locale) => (newValue: any) => {
-      this.props.onChange(
-        uppendTranslation(locale, newValue)(this.getWidgetState()),
-      )
-    }
-
-    updateProps = (locale: Locale) => ({
-      ...this.props,
-      onChange: this.handleChange(locale),
-      value: fromJS(this.getValue(locale)),
-    })
-
-    render = () => (
+    return (
       <div>
         {locales.map(locale => (
-          <MarkdownPreview key={locale} {...this.updateProps(locale)} />
+          <MarkdownPreview {...props} key={locale} value={getValue(locale)} />
         ))}
       </div>
     )
   }
+  return LocalizedMarkdownPreview
 }

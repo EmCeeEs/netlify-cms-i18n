@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "webpack",
-    "start": "webpack-dev-server --config ./webpack.config.js"
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "@netlify-cms-i18n/core": "^1.0.0",

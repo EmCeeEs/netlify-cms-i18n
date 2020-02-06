@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { Map, List } from 'immutable'
 import * as R from 'ramda'
 import { extractAsJS, fromJS } from '../shared/helpers'
@@ -35,37 +35,43 @@ export interface LocalizedMarkdownWidgetProps {
   // purely optional
   setActiveStyle?: Function // not working
   setInactiveStyle?: Function // not working
+  classNameLabel?: string // not the correct one
 }
 
 export const createLocalizedMarkdownControl = (locales: Locale[]) => {
-  const LocalizedMarkdownControl: React.FC<LocalizedMarkdownWidgetProps> = props => {
-    const [locale, setLocale] = React.useState<Locale>(
-      R.head(locales) as Locale,
-    )
-    const collection = extractAsJS(props.value)
+  const LocalizedMarkdownControl: React.FC<LocalizedMarkdownWidgetProps> =
+    // eslint-disable-next-line react/display-name
+    forwardRef((props, ref) => {
+      console.log(props)
+      const [locale, setLocale] = React.useState<Locale>(
+        R.head(locales) as Locale,
+      )
+      const collection = extractAsJS(props.value)
 
-    const getValue = (locale: Locale) =>
-      fromJS(getTranslation<string>(locale)(collection))
+      const getValue = (locale: Locale) =>
+        fromJS(getTranslation<string>(locale)(collection))
 
-    const handleChange = (locale: Locale) => (newValue: any) => {
-      props.onChange(fromJS(uppendTranslation(locale, newValue)(collection)))
-    }
+      const handleChange = (locale: Locale) => (newValue: any) => {
+        props.onChange(fromJS(uppendTranslation(locale, newValue)(collection)))
+      }
 
-    return (
-      <div>
-        <LocalePicker
-          locales={locales}
-          currentLocale={locale}
-          setLocale={setLocale}
-        />
-        <MarkdownControl
-          {...props}
-          key={locale}
-          onChange={handleChange(locale)}
-          value={getValue(locale)}
-        />
-      </div>
-    )
-  }
+      return (
+        <div>
+          <LocalePicker
+            className={props.classNameLabel}
+            locales={locales}
+            currentLocale={locale}
+            setLocale={setLocale}
+          />
+          <MarkdownControl
+            {...props}
+            ref={ref}
+            key={locale}
+            onChange={handleChange(locale)}
+            value={getValue(locale)}
+          />
+        </div>
+      )
+    })
   return LocalizedMarkdownControl
 }
