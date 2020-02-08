@@ -6,6 +6,7 @@ import repoData from '../static/data'
 import {
   LocalizedStringWidget,
   LocalizedMarkdownWidget,
+  createLocalizedWidget,
 } from '@netlify-cms-i18n/core'
 
 const LOCALES = ['en', 'de']
@@ -20,8 +21,10 @@ const CMS = () => {
   useEffect(() => {
     window.repoFiles = repoData
 
-    cms.registerWidget(LocalizedStringWidget(LOCALES))
-    cms.registerWidget(LocalizedMarkdownWidget(LOCALES))
+    //cms.registerWidget(LocalizedStringWidget(LOCALES))
+    //cms.registerWidget(LocalizedMarkdownWidget(LOCALES))
+
+    cms.getWidgets().forEach((widget) => cms.registerWidget(createLocalizedWidget(widget, LOCALES)))
     cms.init()
   }, [])
 
