@@ -7,8 +7,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "clean": "rm -rf ./dist",
+    "prebuild": "yarn clean",
     "build": "tsc -p ./",
+    "prestart": "yarn clean",
     "start": "yarn build --watch",
     "test": "tape -r ts-node/register 'src/**/*.test.ts?(x)' | tap-spec",
     "test:watch": "onchange -i 'src/**/*.ts?(x)' -- yarn test",
@@ -17,8 +19,6 @@
   },
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
-    "netlify-cms-widget-markdown": "^2.8.4",
-    "netlify-cms-widget-string": "^2.2.3",
     "ramda": "^0.26.1",
     "react": "^16.12.0"
   },

@@ -6,29 +6,20 @@ const distDir = path.join(__dirname, 'dist')
 
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, 'src/index.js'),
+  devtool: 'inline-source-map',
+  entry: path.join(__dirname, 'src/index.tsx'),
   output: {
     path: distDir,
     filename: 'bundle.js',
   },
   devtool: 'eval-source-map',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
   module: {
     rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            sourceType: 'module',
-            presets: [
-              ['@babel/preset-env', { targets: { esmodules: true } }],
-              '@babel/preset-react',
-            ],
-          },
-        },
-      },
-    ],
+      { test: /\.tsx?$/, loader: 'ts-loader' }
+    ]
   },
   plugins: [
     new HtmlPlugin(),

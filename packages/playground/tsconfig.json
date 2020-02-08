@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+    ],
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "jsx": "react",
+    "outDir": "dist",
+    "strict": true,
+    "sourceMap": true
+  },
+  "include": [
+    "src", "typings"
+  ],
+  "exclude": ["src/**/*.test.*"]
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Locale } from '../../i18n/locales'
+import { Locale } from '../i18n/locales'
 import * as R from 'ramda'
 
 interface LocalePickerProps {

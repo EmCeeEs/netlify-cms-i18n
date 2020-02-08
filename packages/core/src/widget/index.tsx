@@ -1,16 +1,21 @@
-import React, { useCallback, RefForwardingComponent, forwardRef } from 'react'
+import React, {
+  useCallback,
+  RefForwardingComponent,
+  forwardRef,
+  ComponentType,
+  RefAttributes,
+} from 'react'
 import * as R from 'ramda'
 
-import { LocalePicker } from '../shared/LocalePicker'
-import { Locale } from '../../i18n/locales'
-import { getTranslation, uppendTranslation } from '../../i18n'
-import { extractAsJS, fromJS } from '../shared/helpers'
-import { JSONPreview } from '../shared/Preview'
+import { LocalePicker } from './LocalePicker'
+import { Locale } from '../i18n/locales'
+import { getTranslation, uppendTranslation } from '../i18n'
+import { extractAsJS, fromJS } from './helpers'
 
-interface Widget {
+export interface Widget {
   name: string
-  control: any
-  preview: any
+  control: ComponentType<WidgetProps & RefAttributes<unknown>>
+  preview: ComponentType<WidgetProps & RefAttributes<unknown>>
 }
 
 interface WidgetProps {
@@ -60,6 +65,12 @@ export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
       )
     })
 
+  const JSONPreview: React.FC<WidgetProps> = props => {
+    const collection = extractAsJS(props.value)
+
+    return <p>{JSON.stringify(collection)}</p>
+  }
+
   const LocalizedPreview: RefForwardingComponent<{}, WidgetProps> =
     // eslint-disable-next-line react/display-name
     forwardRef((props, ref) => {
@@ -96,8 +107,8 @@ export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
       R.prop('name'),
       R.concat('i18n-'),
     )(Widget),
-    controlComponent: LocalizedControl,
-    //previewComponent: LocalizedPreview,
-    previewComponent: JSONPreview,
+    control: LocalizedControl,
+    preview: LocalizedPreview,
+    //preview: JSONPreview,
   }
 }

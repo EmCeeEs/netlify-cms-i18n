@@ -1,5 +1,3 @@
-export { LocalizedMarkdownWidget } from './widgets/LocalizedMarkdown'
-export { LocalizedStringWidget } from './widgets/LocalizedString'
-export { createLocalizedWidget } from './widgets/LocalizedWrapper'
+export { createLocalizedWidget, Widget } from './widget'
 
 export { Locale } from './i18n/locales'

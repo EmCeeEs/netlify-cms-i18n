@@ -4,12 +4,10 @@ import cms from 'netlify-cms-app'
 
 import repoData from '../static/data'
 import {
-  LocalizedStringWidget,
-  LocalizedMarkdownWidget,
-  createLocalizedWidget,
+  createLocalizedWidget, Locale,
 } from '@netlify-cms-i18n/core'
 
-const LOCALES = ['en', 'de']
+const LOCALES: Locale[] = ['en', 'de']
 
 const createRoot = () => {
   const $root = document.createElement('div')
@@ -19,13 +17,15 @@ const createRoot = () => {
 
 const CMS = () => {
   useEffect(() => {
-    window.repoFiles = repoData
+  (window as any).repoFiles = repoData
 
-    //cms.registerWidget(LocalizedStringWidget(LOCALES))
-    //cms.registerWidget(LocalizedMarkdownWidget(LOCALES))
+  // The typings for CMS are suuuuuperbad
+  cms.getWidgets().forEach((widget) => {
+    const { name, control, preview } = createLocalizedWidget(widget, LOCALES)
+    cms.registerWidget(name, control as any, preview as any)
+  })
 
-    cms.getWidgets().forEach((widget) => cms.registerWidget(createLocalizedWidget(widget, LOCALES)))
-    cms.init()
+  cms.init()
   }, [])
 
   return <div id="nc-root"></div>
