@@ -34,7 +34,9 @@ export const uppendTranslation = <T>(locale: Locale, value: T) => (
   collection: TranslationCollection<T>,
 ): TranslationCollection<T> =>
   R.pipe(
-    R.reject<Localized<T>, 'array'>(R.propEq('locale', locale)),
+    R.reject(R.propEq('locale', locale)) as (
+      array: TranslationCollection<T>,
+    ) => TranslationCollection<T>,
     R.ifElse(
       R.pipe(R.always(value), R.isEmpty),
       R.identity,
@@ -43,21 +45,25 @@ export const uppendTranslation = <T>(locale: Locale, value: T) => (
   )(collection)
 
 // TODO: Use maybe functor to act on undefined values
-export const getTranslation = <T>(locale: Locale) => (
-  collection: TranslationCollection<T>,
-): T | undefined =>
+export const getTranslation = <T>(
+  locale: Locale,
+): ((collection: TranslationCollection<T>) => T | undefined) =>
   R.pipe(
-    R.find(R.propEq('locale', locale)),
+    R.find(R.propEq('locale', locale)) as (
+      array: TranslationCollection<T>,
+    ) => Localized<T> | undefined,
     R.ifElse(R.isNil, R.identity, R.prop('value')),
-  )(collection)
+  )
 
 export const findTranslation = <T>(locales: Locale[]) => (
   collection: TranslationCollection<T>,
 ): T | undefined =>
   R.pipe(
-    R.map((locale: Locale) => getTranslation(locale)(collection)),
-    R.reject(R.isNil),
-    R.head,
+    R.map((locale: Locale) => getTranslation(locale)(collection)) as (
+      locales: Locale[],
+    ) => (T | undefined)[],
+    R.reject(R.isNil) as (array: (T | undefined)[]) => T[],
+    R.head as (array: T[]) => T | undefined,
   )(locales)
 
 export const translate = (locales: Locale[]) => (node: any): any =>

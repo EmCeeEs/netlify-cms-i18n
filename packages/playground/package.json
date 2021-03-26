@@ -12,7 +12,6 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
-    "@netlify-cms-i18n/core": "^1.0.0",
     "netlify-cms-app": "^2.9.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -29,5 +28,8 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3"
+  },
+  "workspaceDependencies": {
+    "@netlify-cms-i18n/core": "*"
   }
 }
