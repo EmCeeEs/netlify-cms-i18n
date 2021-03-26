@@ -1,9 +1,10 @@
 import React, {
   useCallback,
-  RefForwardingComponent,
   forwardRef,
   ComponentType,
   RefAttributes,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
 } from 'react'
 import * as R from 'ramda'
 
@@ -24,7 +25,10 @@ interface WidgetProps {
 }
 
 export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
-  const LocalizedControl: RefForwardingComponent<{}, WidgetProps> =
+  const LocalizedControl: ForwardRefExoticComponent<PropsWithoutRef<
+    WidgetProps
+  > &
+    React.RefAttributes<unknown>> =
     // eslint-disable-next-line react/display-name
     forwardRef((props, ref) => {
       const { value, onChange } = props
@@ -71,7 +75,10 @@ export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
     return <p>{JSON.stringify(collection)}</p>
   }
 
-  const LocalizedPreview: RefForwardingComponent<{}, WidgetProps> =
+  const LocalizedPreview: ForwardRefExoticComponent<PropsWithoutRef<
+    WidgetProps
+  > &
+    React.RefAttributes<unknown>> =
     // eslint-disable-next-line react/display-name
     forwardRef((props, ref) => {
       const { value } = props

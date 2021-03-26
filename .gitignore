@@ -3,3 +3,6 @@ dist/
 
 lerna-debug.log
 yarn-error.log
+
+# IDE
+.idea

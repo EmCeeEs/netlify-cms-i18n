@@ -15,10 +15,11 @@
     "jsx": "react",
     "outDir": "dist",
     "strict": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
   },
   "include": [
     "src"
   ],
-  "exclude": ["src/**/*.test.*"]
 }
