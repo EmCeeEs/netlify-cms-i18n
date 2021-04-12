@@ -15,7 +15,7 @@
     "jsx": "react",
     "outDir": "dist",
     "strict": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
