@@ -16,13 +16,23 @@ interface LocaleTabProps {
   onClick: () => void
 }
 
+const ulStyle = {
+  listStyleType: 'none',
+  // marginTop: '0px',
+  // marginBottom: '0px',
+}
+
+const liStyle = {
+  display: 'inline-block',
+}
+
 export const LocalePicker: React.FC<LocalePickerProps> = ({
   locales,
   currentLocale,
   setLocale,
   className,
 }) => (
-  <ul>
+  <ul style={ulStyle}>
     {locales.map((locale: Locale) => (
       <LocaleTab
         className={className}
@@ -41,7 +51,7 @@ const LocaleTab: React.FC<LocaleTabProps> = ({
   onClick,
   className,
 }) => (
-  <li className={className}>
+  <li className={className} style={liStyle}>
     <button className={className} disabled={active} onClick={onClick}>
       {locale}
     </button>

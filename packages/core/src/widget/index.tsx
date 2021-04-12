@@ -69,12 +69,6 @@ export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
       )
     })
 
-  const JSONPreview: React.FC<WidgetProps> = props => {
-    const collection = extractAsJS(props.value)
-
-    return <p>{JSON.stringify(collection)}</p>
-  }
-
   const LocalizedPreview: ForwardRefExoticComponent<PropsWithoutRef<
     WidgetProps
   > &
@@ -109,6 +103,7 @@ export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
         </div>
       )
     })
+
   return {
     name: R.pipe<Widget, string, string>(
       R.prop('name'),
@@ -116,6 +111,5 @@ export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
     )(Widget),
     control: LocalizedControl,
     preview: LocalizedPreview,
-    //preview: JSONPreview,
   }
 }

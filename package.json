@@ -5,6 +5,11 @@
   "author": "Marcus Theisen",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "yarn workspace @netlify-cms-i18n/core build",
+    "prestart": "yarn build",
+    "start": "yarn workspace @netlify-cms-i18n/playground start"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   },
