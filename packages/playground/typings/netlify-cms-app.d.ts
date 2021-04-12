@@ -1,4 +1,4 @@
-import { Widget } from '@netlify-cms-i18n/core'
+import { Widget } from 'netlify-cms-i18n'
 
 declare module 'netlify-cms-core' {
   interface CMS {

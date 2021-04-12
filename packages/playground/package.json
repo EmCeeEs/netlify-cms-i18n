@@ -1,5 +1,5 @@
 {
-  "name": "@netlify-cms-i18n/playground",
+  "name": "playground",
   "version": "1.0.0",
   "description": "Playground",
   "main": "src/index.js",
@@ -30,6 +30,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "workspaceDependencies": {
-    "@netlify-cms-i18n/core": "*"
+    "netlify-cms-i18n": "*"
   }
 }

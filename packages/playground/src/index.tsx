@@ -6,7 +6,7 @@ import repoFiles from '../static/data'
 
 import {
   createLocalizedWidget, Locale,
-} from '@netlify-cms-i18n/core'
+} from 'netlify-cms-i18n'
 
 const LOCALES: Locale[] = ['en', 'de']
 

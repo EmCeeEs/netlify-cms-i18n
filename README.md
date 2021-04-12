@@ -1,20 +1,28 @@
 # netlify-cms-i18n
-Add internationalization to netlify CMS.
+Internationalisation (i18n) for netlify CMS.
 
-Content is stored in json files in the repository.
+Create widgets with ability to toggle between different locales.
+
+![preview](assets/preview3.png)
 
 ## Installation
 ```shell
-yarn add @netlify-cms-i18n/core
+yarn add netlify-cms-app # peer dependency
+```
+```shell
+yarn add netlify-cms-i18n
 ```
 
 ## Usage
+The package provides a function `createLocalizedWidget` which takes a widget and a list of locales
+and returns a localized (i18n) widget of the same type.
+
+[Supported locales](packages/netlify-cms-i18n/src/i18n/locales.ts).
+
 Create and register localized versions of standard netlify-cms widgets:
 ```ts
 import cms from 'netlify-cms-app'
-import {
-    createLocalizedWidget, Locale,
-} from '@netlify-cms-i18n/core'
+import { createLocalizedWidget, Locale } from 'netlify-cms-i18n'
 
 const LOCALES: Locale[] = ['en', 'de']
 
@@ -26,7 +34,7 @@ cms.getWidgets().forEach((widget) => {
 cms.init()
 ```
 
-Localized widgets are available as `i18n-<widget>` in `static/config.yml`:
+Localized widgets are available as `i18n-<widget>` in your `admin/config.yml`:
 ```yaml
 collections:
   - label: Pages
@@ -44,5 +52,18 @@ collections:
             widget: i18n-markdown
 ```
 
-## Preview
-![preview](preview.png)
+## Development
+Clone the repo and start the playground:
+
+```shell
+git clone https://github.com/EmCeeEs/netlify-cms-i18n.git
+```
+```shell
+cd netlify-cms-i18n
+```
+```shell
+yarn install
+```
+```shell
+yarn start
+```

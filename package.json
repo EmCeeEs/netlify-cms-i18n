@@ -1,14 +1,14 @@
 {
-  "name": "netlify-cms-i18n",
+  "name": "netlify-cms-i18n-root",
   "version": "1.0.0",
   "description": "Internationalisation for netlify CMS.",
   "author": "Marcus Theisen",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "yarn workspace @netlify-cms-i18n/core build",
+    "build": "yarn workspace netlify-cms-i18n build",
     "prestart": "yarn build",
-    "start": "yarn workspace @netlify-cms-i18n/playground start"
+    "start": "yarn workspace playground start"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
