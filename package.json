@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "build": "yarn workspace netlify-cms-i18n build",
+    "test": "yarn workspace netlify-cms-i18n test",
     "prestart": "yarn build",
     "start": "yarn workspace playground start"
   },

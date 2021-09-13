@@ -15,18 +15,22 @@ import { extractAsJS, fromJS } from './helpers'
 
 export interface Widget {
   name: string
-  control: ComponentType<WidgetProps & RefAttributes<unknown>>
-  preview: ComponentType<WidgetProps & RefAttributes<unknown>>
+  control: ComponentType<WidgetControlProps & RefAttributes<unknown>>
+  preview: ComponentType<WidgetPreviewProps & RefAttributes<unknown>>
 }
 
-interface WidgetProps {
+interface WidgetControlProps {
   onChange: (newValue: any) => void
+  value?: any
+}
+
+interface WidgetPreviewProps {
   value?: any
 }
 
 export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
   const LocalizedControl: ForwardRefExoticComponent<PropsWithoutRef<
-    WidgetProps
+    WidgetControlProps
   > &
     React.RefAttributes<unknown>> =
     // eslint-disable-next-line react/display-name
@@ -70,7 +74,7 @@ export const createLocalizedWidget = (Widget: Widget, locales: Locale[]) => {
     })
 
   const LocalizedPreview: ForwardRefExoticComponent<PropsWithoutRef<
-    WidgetProps
+    WidgetPreviewProps
   > &
     React.RefAttributes<unknown>> =
     // eslint-disable-next-line react/display-name
