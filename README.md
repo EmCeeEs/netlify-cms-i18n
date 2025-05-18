@@ -1,4 +1,10 @@
-# netlify-cms-i18n
+⚠️ Internationalisation (i18n) is now included in [Decap CMS](https://decapcms.org/docs/i18n/) (formally Netlify CMS).
+
+Users of this plugin should use the built-in feature.
+
+This repository will remain available for historical reference.
+
+# netlify-cms-i18n (ARCHIVED)
 Internationalisation (i18n) for netlify CMS.
 
 Create widgets with ability to toggle between different locales.
